@@ -19,12 +19,13 @@ namespace ParityUnitTest
             Assert.That(isEven, Is.True);
         }
 
-        
-        [Test]
-        public void IsEven_ShouldReturnFalse_WhenNumberIsTwo()
+        [TestCase(2)]
+        [TestCase(4)]
+        public void IsEven_ShouldReturnFalse_WhenNumberIsDivisibleByTwo(int number)
         {
-            bool isEven = ParityService.IsEven(2);
+            bool isEven = ParityService.IsEven(number);
             Assert.That(isEven, Is.False);
         }
+    
     }
 }
