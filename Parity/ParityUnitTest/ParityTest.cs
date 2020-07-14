@@ -33,6 +33,13 @@ namespace ParityUnitTest
             bool isEven = ParityService.IsEven(number);
             Assert.That(isEven, Is.False);
         }
+
+        [Test]
+        public void IsOdd_ShouldReturnFalse_WhenNumberIsNotDivisibleByTwo()
+        {
+            bool isOdd = ParityService.IsOdd(1);
+            Assert.That(isOdd, Is.False);
+        }
     
     }
 }
