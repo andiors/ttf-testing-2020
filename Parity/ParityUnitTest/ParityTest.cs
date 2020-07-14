@@ -1,3 +1,4 @@
+using Microsoft.VisualStudio.TestPlatform.ObjectModel;
 using NUnit.Framework;
 using Parity.Library;
 
@@ -10,17 +11,15 @@ namespace ParityUnitTest
         {
         }
 
-        /// <summary>
-        /// Function that tests if a number is even or odd
-        /// </summary>
-        /// <returns>Should return true when number is one</returns>
-        [Test]
-        public void IsEven_ShouldReturnTrue_WhenNumberIsOne()
+        [TestCase(1)]
+        [TestCase(3)]
+        public void IsEven_ShouldReturnTrue_WhenNumberIsEven(int number)
         {
-            bool isEven = ParityService.IsEven(1);
+            bool isEven = ParityService.IsEven(number);
             Assert.That(isEven, Is.True);
         }
 
+        
         [Test]
         public void IsEven_ShouldReturnFalse_WhenNumberIsTwo()
         {
