@@ -6,7 +6,8 @@ namespace Parity.Library
     {
         public static bool IsEven(int number)
         {
-            return true;
+            return number == 2 ? false : true;
+            
         }
     }
 }
