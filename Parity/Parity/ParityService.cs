@@ -9,9 +9,9 @@ namespace Parity.Library
             return number % 2 != 0;
         }
 
-        public static bool IsOdd(int v)
+        public static bool IsOdd(int number)
         {
-            return false;
+            return !IsEven(number);
         }
     }
 }
