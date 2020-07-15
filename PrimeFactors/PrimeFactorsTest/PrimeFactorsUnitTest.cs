@@ -23,6 +23,9 @@ namespace PrimeFactorsTest
         [TestCase(3, 3)]
         [TestCase(4, 2, 2)]
         [TestCase(5, 5)]
+        [TestCase(6, 2, 3)]
+        [TestCase(7, 7)]
+        [TestCase(8, 2, 2, 2)]
         public void PrimeFactors_ShouldReturn(int number, params int[] expectedFactors)
         {
             List<int> primeFactors = PrimeFactors.Calculate(number);
