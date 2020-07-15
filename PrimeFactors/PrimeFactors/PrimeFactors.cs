@@ -14,7 +14,7 @@ namespace PrimeFactor.Service
                 {
                     if (number % value == 0)
                     {
-                        list.Add(2);
+                        list.Add(value);
                         number /= value;
                     }
                 }

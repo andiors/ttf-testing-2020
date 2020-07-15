@@ -18,31 +18,16 @@ namespace PrimeFactorsTest
             Assert.That(primeFactors, Is.Empty);
         }
 
-        [Test]
-        public void Two_ShouldReturn_Two()
+       
+        [TestCase(2, 2)]
+        [TestCase(3, 3)]
+        [TestCase(4, 2, 2)]
+        public void PrimeFactors_ShouldReturn(int number, params int[] expectedFactors)
         {
-            List<int> primeFactors = PrimeFactors.Calculate(2);
-            List<int> expectedValues = new List<int> { 2 };
-           
-            Assert.That(primeFactors, Is.EqualTo(expectedValues));
+            List<int> primeFactors = PrimeFactors.Calculate(number);
+            Assert.That(primeFactors, Is.EqualTo(expectedFactors));
         }
 
-        [Test]
-        public void Three_ShouldReturn_Three()
-        {
-            List<int> primeFactors = PrimeFactors.Calculate(3);
-            List<int> expectedValues = new List<int> { 3 };
-
-            Assert.That(primeFactors, Is.EqualTo(expectedValues));
-        }
-
-        [Test]
-        public void Four_ShouldReturn_TwoTwo()
-        {
-            List<int> primeFactors = PrimeFactors.Calculate(4);
-            List<int> expectedValues = new List<int> { 2, 2 };
-
-            Assert.That(primeFactors, Is.EqualTo(expectedValues));
-        }
+        
     }
 }
