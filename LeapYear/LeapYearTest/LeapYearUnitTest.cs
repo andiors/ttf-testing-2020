@@ -39,6 +39,12 @@ namespace LeapYearTest
             bool isLeap = LeapYears.IsLeapYear(1744);
             Assert.That(isLeap, Is.True);
         }
+
+        public void IfYearIsNegative_ShouldReturnFalse()
+        {
+            bool isLeap = LeapYears.IsLeapYear(-3000);
+            Assert.That(isLeap, Is.False);
+        }
         
     }
 }
