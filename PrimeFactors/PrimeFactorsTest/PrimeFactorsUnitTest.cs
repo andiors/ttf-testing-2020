@@ -41,11 +41,18 @@ namespace PrimeFactorsTest
             {
                 List<int> primeFactors = PrimeFactors.Calculate(-1);
             }
-            catch(InvalidOperationException ex)
+            catch(InvalidOperationException)
             {
                 Assert.Pass();
             }
             Assert.Fail();
+        }
+
+        [Test]
+        public void Zero_ShouldThrow_InvalidOperationException()
+        {
+            Assert.That(() => PrimeFactors.Calculate(0), 
+                Throws.InvalidOperationException);
         }
 
         
