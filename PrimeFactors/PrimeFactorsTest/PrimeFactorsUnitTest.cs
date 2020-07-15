@@ -26,5 +26,14 @@ namespace PrimeFactorsTest
            
             Assert.That(primeFactors, Is.EqualTo(expectedValues));
         }
+
+        [Test]
+        public void Three_ShouldReturn_Three()
+        {
+            List<int> primeFactors = PrimeFactors.Calculate(3);
+            List<int> expectedValues = new List<int> { 3 };
+
+            Assert.That(primeFactors, Is.EqualTo(expectedValues));
+        }
     }
 }
