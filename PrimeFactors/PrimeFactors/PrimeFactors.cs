@@ -8,9 +8,17 @@ namespace PrimeFactor.Service
         public static List<int> Calculate(int number)
         {
             List<int> list = new List<int>();
-            if (number != 1)
-                list.Add(number);
-            
+            while (number > 1)
+            {
+                for (int value = 2; value <= 3; value++)
+                {
+                    if (number % value == 0)
+                    {
+                        list.Add(2);
+                        number /= value;
+                    }
+                }
+            }
             return list;
         }
     }
