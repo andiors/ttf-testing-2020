@@ -33,6 +33,12 @@ namespace LeapYearTest
             bool isLeap = LeapYears.IsLeapYear(year);
             Assert.That(isLeap, Is.True);
         }
+
+        public void InGiulianCalendar_IfYearIsDivisibleBy4_ShouldReturnTrue()
+        {
+            bool isLeap = LeapYears.IsLeapYear(1744);
+            Assert.That(isLeap, Is.True);
+        }
         
     }
 }
