@@ -16,5 +16,14 @@ namespace LeapYearTest
             bool isLeap = LeapYears.IsLeapYear(400);
             Assert.That(isLeap, Is.True);
         }
+
+        [TestCase(100)]
+        [TestCase(1300)]
+        public void IfYearIs100_Or1300_ShouldReturnFalse(int year)
+        {
+            bool isLeap = LeapYears.IsLeapYear(year);
+            Assert.That(isLeap, Is.False);
+        }
+        
     }
 }
