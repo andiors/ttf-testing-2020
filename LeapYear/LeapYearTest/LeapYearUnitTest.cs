@@ -19,11 +19,19 @@ namespace LeapYearTest
 
         [TestCase(100)]
         [TestCase(1300)]
-        [TestCase(1600)]
         public void IfIsSecolarYear_ShouldReturnFalse(int year)
         {
             bool isLeap = LeapYears.IsLeapYear(year);
             Assert.That(isLeap, Is.False);
+        }
+
+        [TestCase(400)]
+        [TestCase(2000)]
+        [TestCase(1600)]
+        public void IfSecolarYear_DivisibleBy400_ShouldReturnTrue(int year)
+        {
+            bool isLeap = LeapYears.IsLeapYear(year);
+            Assert.That(isLeap, Is.True);
         }
         
     }

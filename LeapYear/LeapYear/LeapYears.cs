@@ -7,10 +7,11 @@ namespace LeapYear.Service
         public static bool IsLeapYear(int year)
         {
             int value = 4;
-
-            if ((year % 100 == 0) && (year % value == 0))
+            if (year % 400 == 0)
+                return true;
+            else if ((year % 100 == 0) && (year % value == 0))
                 return false;
-            else
+            else 
                 return true;
         }
     }
