@@ -1,5 +1,6 @@
 using NUnit.Framework;
 using LeapYear.Service;
+using System;
 
 namespace LeapYearTest
 {
@@ -44,6 +45,13 @@ namespace LeapYearTest
         {
             bool isLeap = LeapYears.IsLeapYear(-3000);
             Assert.That(isLeap, Is.False);
+        }
+
+        [TestCase(0)]
+        public void IfYearIsO_ShouldThrow_NullReferenceException(int year)
+        {
+            Assert.That(() => LeapYears.IsLeapYear(year),
+                Throws.InstanceOf(typeof(NullReferenceException)));
         }
         
     }
