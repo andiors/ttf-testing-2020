@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Diagnostics.CodeAnalysis;
+using System.Reflection.Metadata.Ecma335;
 
 namespace StringCalculator
 {
@@ -12,21 +13,30 @@ namespace StringCalculator
                 return 0;
             }
 
-            if(inputString.Contains(',') || inputString.Contains('\n'))
+            string customSeparator = "";
+            if (IsCustomDelimiter(inputString))
             {
-                int sum = 0;
-                string[] tokens = inputString.Split(',', '\n');
-                
-                foreach(string text in tokens)
-                {
-                    int numberText = int.Parse(text);
-                    sum += numberText;
-                }
-
-                return sum;
+                customSeparator = inputString.Substring(2, 1);
+                inputString = inputString.Substring(4);
             }
-            
-            return int.Parse(inputString);
+
+            int sum = 0;
+            string[] tokens = inputString.Split(new string[] { ",", "\n", customSeparator, },
+                StringSplitOptions.None);
+
+            foreach (string text in tokens)
+            {
+                int numberText = int.Parse(text);
+                sum += numberText;
+            }
+
+            return sum;
+
+        }
+
+        private static bool IsCustomDelimiter(string inputString)
+        {
+            return inputString.StartsWith("//");
         }
     }
 }
