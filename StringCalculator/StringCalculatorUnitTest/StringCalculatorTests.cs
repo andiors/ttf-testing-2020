@@ -14,6 +14,7 @@ namespace StringCalculatorUnitTest
         [Test]
         public void InputString_ShouldReturn_TheEquivalentNumber()
         {
+            int stringNumber = StringCalculatorService.Add("1");
             Assert.Pass();
         }
     }
