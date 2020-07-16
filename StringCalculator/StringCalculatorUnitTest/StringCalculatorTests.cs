@@ -24,5 +24,21 @@ namespace StringCalculatorUnitTest
             int stringNumber = StringCalculatorService.Add("1");
             Assert.That(stringNumber, Is.EqualTo(1));
         }
+
+        [Test]
+        public void TwoNumbers_SeparatedByComma_ShouldReturn_TheirSum()
+        {
+            int stringNumber = StringCalculatorService.Add("1,2");
+            Assert.That(stringNumber, Is.EqualTo(3));
+        }
+
+        [TestCase("5,8,2,4,4,9")]
+        [TestCase("5,8,2\n4\n4,9")]
+        [TestCase("5\n8,2\n4\n4\n9")]
+        public void ReturnTheSum_WhenInputString_AreAListOfNumber(string numbersSet)
+        {
+            int stringNumber = StringCalculatorService.Add(numbersSet);
+            Assert.That(stringNumber, Is.EqualTo(32));
+        }
     }
 }

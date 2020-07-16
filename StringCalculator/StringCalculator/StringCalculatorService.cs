@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Diagnostics.CodeAnalysis;
 
 namespace StringCalculator
 {
@@ -10,7 +11,21 @@ namespace StringCalculator
             {
                 return 0;
             }
+
+            if(inputString.Contains(',') || inputString.Contains('\n'))
+            {
+                int sum = 0;
+                string[] tokens = inputString.Split(',', '\n');
                 
+                foreach(string text in tokens)
+                {
+                    int numberText = int.Parse(text);
+                    sum += numberText;
+                }
+
+                return sum;
+            }
+            
             return int.Parse(inputString);
         }
     }
