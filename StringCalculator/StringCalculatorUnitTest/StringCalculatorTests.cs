@@ -17,5 +17,11 @@ namespace StringCalculatorUnitTest
             int stringNumber = StringCalculatorService.Add("1");
             Assert.Pass();
         }
+
+        public void IfInputString_IsEmpty_ReturnZero()
+        {
+            int stringNumber = StringCalculatorService.Add(" ");
+            Assert.That(stringNumber, Is.EqualTo(0));
+        }
     }
 }

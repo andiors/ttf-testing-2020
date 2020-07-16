@@ -4,9 +4,9 @@ namespace StringCalculator
 {
     public class StringCalculatorService
     {
-        public static int Add(string strInput)
+        public static int Add(string inputString)
         {
-            return 1;
+            return 0;
         }
     }
 }
