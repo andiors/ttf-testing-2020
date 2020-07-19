@@ -35,10 +35,18 @@ namespace StringCalculatorUnitTest
         [TestCase("5,8,2,4,4,9")]
         [TestCase("5,8,2\n4\n4,9")]
         [TestCase("5\n8,2\n4\n4\n9")]
-        [TestCase("//n5񙓦񘄸�9")]
+        
         public void ReturnTheSum_WhenInputString_AreAListOfNumber(string numbersSet)
         {
             int stringNumber = StringCalculatorService.Add(numbersSet);
+            Assert.That(stringNumber, Is.EqualTo(32));
+        }
+        
+        [TestCase("//n5񙓦񘄸�9")]
+        [TestCase("//*\n5*8*2*4*4*9")]
+        public void ReturnTheSum_OfAListOfNumber_WithCustomSeparator(string numberSet)
+        {
+            int stringNumber = StringCalculatorService.Add(numberSet);
             Assert.That(stringNumber, Is.EqualTo(32));
         }
     }
