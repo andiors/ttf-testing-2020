@@ -8,11 +8,13 @@ namespace Notes
     {
         public readonly string Title;
         public readonly string Description;
+        public readonly DateTime CreationDate;
 
-        public Note(string title, string description)
+        public Note(string title, string description, DateTime creationDate)
         {
-            Title = title;
-            Description = description;
+            this.Title = title;
+            this.Description = description;
+            CreationDate = creationDate;
         }
     }
 }

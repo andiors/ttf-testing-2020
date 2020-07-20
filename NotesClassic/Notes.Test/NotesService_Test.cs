@@ -8,13 +8,15 @@ namespace Notes.Test
     public class NotesService_Test
     {
         TestNotesRepository repository;
+        TestClock clock;
         NotesService service;
 
         [SetUp]
         public void Setup()
         {
             repository = new TestNotesRepository();
-            service = new NotesService(repository);
+            clock = new TestClock();
+            service = new NotesService(repository, clock);
         }
 
         [Test]
@@ -37,6 +39,14 @@ namespace Notes.Test
         }
 
         [Test]
+        public void AddedNote_ShouldContainsCreationDate()
+        {
+            service.Add("titolo", "descrizione");
+            Note note = repository.Notes.First();
+            Assert.That(note.CreationDate, Is.EqualTo(clock.Now()));
+        }
+
+        [Test]
         public void ShouldReturn_EmptyList_BeforeAddANote()
         {
             IList<Note> notes = service.All();
@@ -52,7 +62,6 @@ namespace Notes.Test
 
             IList<Note> notes = service.All();
             Assert.That(notes, Has.Count.EqualTo(2));
-
         }
     }
 }

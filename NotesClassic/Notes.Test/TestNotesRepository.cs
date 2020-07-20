@@ -1,4 +1,5 @@
 ﻿using NUnit.Framework;
+using System;
 using System.Collections.Generic;
 
 namespace Notes.Test
@@ -9,7 +10,7 @@ namespace Notes.Test
 
         public IList<Note> FindAll()
         {
-            throw new System.NotImplementedException();
+            return Notes;
         }
 
         public void Insert(Note newNote)
