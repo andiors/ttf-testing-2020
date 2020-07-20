@@ -49,5 +49,13 @@ namespace StringCalculatorUnitTest
             int stringNumber = StringCalculatorService.Add(numberSet);
             Assert.That(stringNumber, Is.EqualTo(32));
         }
+
+        [TestCase("-2")]
+        [TestCase("-3")]
+        public void ThrowsAnException_IfInputString_IsANegativeNumber(string negativeNumber)
+        {
+            Assert.That(() => StringCalculatorService.Add(negativeNumber),
+                Throws.InstanceOf(typeof(InvalidOperationException)));
+        }
     }
 }
