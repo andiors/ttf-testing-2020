@@ -8,5 +8,6 @@ namespace Notes
     {
         void Insert(Note newNote);
         IList<Note> FindAll();
+        void Truncate();
     }
 }

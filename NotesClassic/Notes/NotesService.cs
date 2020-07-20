@@ -24,5 +24,10 @@ namespace Notes
         {
             return repository.FindAll();
         }
+
+        public void Clear()
+        {
+            repository.Truncate();
+        }
     }
 }

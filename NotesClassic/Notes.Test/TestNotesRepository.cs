@@ -17,5 +17,10 @@ namespace Notes.Test
         {
             Notes.Add(newNote);
         }
+
+        public void Truncate()
+        {
+            Notes.Clear();
+        }
     }
 }

@@ -2,6 +2,7 @@ using NUnit.Framework;
 using Notes;
 using System.Linq;
 using System.Collections.Generic;
+using System;
 
 namespace Notes.Test
 {
@@ -63,5 +64,35 @@ namespace Notes.Test
             IList<Note> notes = service.All();
             Assert.That(notes, Has.Count.EqualTo(2));
         }
+
+        [Test]
+        public void ShouldClear_AllAddedNotes()
+        {
+            service.Add("titolo 1", "descrizione 1");
+            service.Add("titolo 2", "descrizione 2");
+
+            service.Clear();
+
+            IList<Note> notes = service.All();
+            Assert.That(notes, Is.Empty);
+
+        }
+
+        [Test]
+        public void ShouldClear_AllAddedNotes_UsingRepository()
+        {
+            // Inizializzazione dello stato iniziale prima di effettuare il test
+            List<Note> repositoryNotes = new List<Note>();
+            repositoryNotes.Add(new Note("titolo 1", "descrizione 1", DateTime.Now));
+            repositoryNotes.Add(new Note("titolo 2", "descrizione 2", DateTime.Now));
+            repository.Notes = repositoryNotes;
+           
+            // Esecuzione di un'operazione che vogliamo testare - uno statement
+            service.Clear();
+
+            // Asserzione - 1 o più statement
+            Assert.That(repository.Notes, Is.Empty);
+        }
+
     }
 }

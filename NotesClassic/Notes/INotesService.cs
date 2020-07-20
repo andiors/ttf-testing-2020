@@ -8,5 +8,6 @@ namespace Notes
     {
         void Add(string title, string description);
         IList<Note> All();
+        void Clear();
     }
 }
