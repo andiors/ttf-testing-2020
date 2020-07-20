@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 
 namespace Notes
 {
@@ -8,13 +9,18 @@ namespace Notes
 
         public NotesService(INotesRepository _repository)
         {
-            this.repository = _repository;
+            repository = _repository;
         }
 
         public void Add(string title, string description)
         {
             Note note = new Note(title, description);
             repository.Insert(note);
+        }
+
+        public IList<Note> All()
+        {
+            return new List<Note>();
         }
     }
 }

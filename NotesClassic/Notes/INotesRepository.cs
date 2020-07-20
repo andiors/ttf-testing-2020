@@ -7,5 +7,6 @@ namespace Notes
     public interface INotesRepository
     {
         void Insert(Note newNote);
+        IList<Note> FindAll();
     }
 }
