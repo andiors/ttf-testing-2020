@@ -29,5 +29,16 @@ namespace Notes
         {
             repository.Truncate();
         }
+
+        public Note Update(Note noteToUpdate, string newTitle, string newDescription)
+        {
+            if(noteToUpdate != null)
+            {
+                Note updatedNote = new Note(newTitle, newDescription, noteToUpdate.CreationDate);
+                noteToUpdate = updatedNote;
+            }
+
+            return noteToUpdate;
+        }
     }
 }

@@ -94,5 +94,18 @@ namespace Notes.Test
             Assert.That(repository.Notes, Is.Empty);
         }
 
+        [Test]
+        public void Should_UpdateANote()
+        {
+            List<Note> repositoryNote = new List<Note>();
+            repositoryNote.Add(new Note("titolo 1", "descrizione 1", DateTime.Now));
+            repositoryNote.Add(new Note("titolo 2", "descrizione 2", DateTime.Now));
+            repository.Notes = repositoryNote;
+
+            service.Update(repository.Notes[0], "title 1", "descrizione 1");
+            
+            Assert.That(repository.Notes[0].Title, Is.EqualTo("title 1"));
+        }
+
     }
 }

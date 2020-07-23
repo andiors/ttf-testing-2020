@@ -9,5 +9,6 @@ namespace Notes
         void Add(string title, string description);
         IList<Note> All();
         void Clear();
+        Note Update(Note noteToUpdate, string newTitle, string newDescription);
     }
 }
